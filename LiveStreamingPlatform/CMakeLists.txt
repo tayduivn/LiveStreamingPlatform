@@ -9,7 +9,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
@@ -25,7 +25,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(Qt5 COMPONENTS Core Quick Widgets Network REQUIRED)
+find_package(Qt5 COMPONENTS Core Quick Widgets Multimedia Network REQUIRED)
 
 set( OpenCV_DIR "D:/ThirdParty/vcpkg/installed/x64-windows/share/opencv/" )
 find_package( OpenCV REQUIRED )
@@ -57,6 +57,15 @@ if(ANDROID)
 else()
     add_executable(LiveStreamingPlatform
       main.cpp
+      data/data.cpp
+      data/datamanager.cpp
+      videocapture/opencvvideocapture.cpp
+      videocapture/videocapturefactory.cpp
+      codec/ffmpegencoder.cpp
+      codec/mediaencoderfactory.cpp
+      streaming/rtmpmodule.cpp
+      audiorecord/qtaudiorecorder.cpp
+      audiorecord/audiorecorderfactory.cpp
       qml.qrc
     )
 endif()
@@ -65,4 +74,4 @@ endif()
 target_compile_definitions(LiveStreamingPlatform
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(LiveStreamingPlatform
-  PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Network ${OpenCV_LIBS} ${FFMPEG_LIBRARIES})
+  PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Network Qt5::Multimedia ${OpenCV_LIBS} ${FFMPEG_LIBRARIES})
