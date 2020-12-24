@@ -26,3 +26,13 @@ ffmpeg.exe -re -i .\test.mp4 -vcodec libx264 -acodec aac -f flv rtmp://127.0.0.1
 ```
 
 - Open player and input URL: rtmp://127.0.0.1:1935/live/home 
+
+
+## Live Streaming Platform Development
+### Todo
+- VedioCapture 
+- AudioRecord
+- Codec
+- Upstreaming
+- Beautify
+- UI
