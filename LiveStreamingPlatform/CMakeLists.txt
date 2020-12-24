@@ -66,6 +66,8 @@ else()
       streaming/rtmpmodule.cpp
       audiorecord/qtaudiorecorder.cpp
       audiorecord/audiorecorderfactory.cpp
+      beautify/filter.cpp
+      beautify/bilateralfilter.cpp
       qml.qrc
     )
 endif()
