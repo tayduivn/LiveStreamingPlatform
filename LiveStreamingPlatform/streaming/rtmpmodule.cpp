@@ -149,6 +149,17 @@ bool RTMPModule::SendFrame(Data data, int streamIndex)
     return true;
 }
 
+void RTMPModule::Close()
+{
+    if (mImpl->muxingContext)
+    {
+        avformat_close_input(&mImpl->muxingContext);
+        mImpl->videoStram = NULL;
+    }
+    mImpl->videoCodecContext = NULL;
+    mImpl->url = "";
+}
+
 RTMPModule::~RTMPModule()
 {
     if (mImpl->muxingContext)

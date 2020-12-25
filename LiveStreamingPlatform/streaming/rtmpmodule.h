@@ -26,6 +26,9 @@ public:
     // Upstreaming
     bool SendFrame(Data pkt, int streamIndex = 0);
 
+    // Stop
+    void Close();
+
 private:
     static RTMPModule *mInstance;
     struct impl;

@@ -10,8 +10,7 @@ enum AVCodecID;
 class FFmpegEncoder : public MediaEncoderAbstract
 {
 public:
-    void Close();
-
+    void Close() override;
     bool InitScale() override;
     bool InitResample() override;
     bool InitVideoCodec() override;

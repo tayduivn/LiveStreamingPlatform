@@ -32,14 +32,26 @@ Data DataManager::Pop()
     return d;
 }
 
-void DataManager::Start()
+bool DataManager::Start()
 {
     isExit = false;
     QThread::start();
+    return true;
 }
 
 void DataManager::Stop()
 {
     isExit = true;
     wait();
+}
+
+void DataManager::Clear()
+{
+    mutex.lock();
+    while (!datas.empty())
+    {
+        datas.front().Release();
+        datas.pop_front();
+    }
+    mutex.unlock();
 }

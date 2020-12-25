@@ -43,6 +43,9 @@ public:
     // Context for audio codec
     AVCodecContext *audioCodecContext = nullptr;
 
+    // Close media codec
+    virtual void Close() = 0;
+
     // Input parameter
     int inWidth = 640;
     int inHeight = 480;

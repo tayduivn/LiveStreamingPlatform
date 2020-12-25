@@ -22,10 +22,13 @@ public:
     virtual Data Pop();
 
     // Start the thread
-    virtual void Start();
+    virtual bool Start();
 
     // Stop the thread
     virtual void Stop();
+
+    // Clear the data in queue
+    virtual void Clear();
 
 protected:
     // List for storing data, FIFO
