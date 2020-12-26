@@ -25,7 +25,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(Qt5 COMPONENTS Core Quick Widgets Multimedia Network REQUIRED)
+find_package(Qt5 COMPONENTS Core Quick Widgets Multimedia Network QuickControls2  REQUIRED)
 
 set( OpenCV_DIR "D:/ThirdParty/vcpkg/installed/x64-windows/share/opencv/" )
 find_package( OpenCV REQUIRED )
@@ -78,4 +78,4 @@ endif()
 target_compile_definitions(LiveStreamingPlatform
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(LiveStreamingPlatform
-  PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Network Qt5::Multimedia ${OpenCV_LIBS} ${FFMPEG_LIBRARIES})
+  PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Network Qt5::Multimedia Qt5::QuickControls2 ${OpenCV_LIBS} ${FFMPEG_LIBRARIES})
