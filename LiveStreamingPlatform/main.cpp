@@ -2,11 +2,15 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 
+#include "rtmpstreamer.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
+
+    qmlRegisterType<RTMPStreamer>("RTMPStreamer", 1, 0, "RTMPStreamer");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

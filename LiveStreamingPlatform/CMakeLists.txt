@@ -68,6 +68,8 @@ else()
       audiorecord/audiorecorderfactory.cpp
       beautify/filter.cpp
       beautify/bilateralfilter.cpp
+      controller/controller.cpp
+      rtmpstreamer.cpp
       qml.qrc
     )
 endif()
